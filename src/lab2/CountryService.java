@@ -1,5 +1,7 @@
 package lab2;
 
+import java.util.Scanner;
+
 public class CountryService {
 
     private static ReaderTicket[] tickets;
@@ -100,6 +102,16 @@ public class CountryService {
         System.out.println("\n Читатели по убыванию количества выданных книг");
         for (int i = 0; i < unique; i++) {
             System.out.printf("Читатель: %-12s | Книг: %d%n", names[i], counts[i]);
+        }
+    }
+    public static void fillTickets() {
+        System.out.print("Введите количество записей => ");
+        int n = (new Scanner(System.in)).nextInt();
+        tickets = new ReaderTicket[n];
+        System.out.println("Введите информацию о читательских билетах:");
+        for (int i = 0; i < tickets.length; i++) {
+            System.out.println("Запись " + (i + 1) + " =>");
+            tickets[i] = new ReaderTicket();
         }
     }
 }
