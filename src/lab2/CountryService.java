@@ -114,4 +114,23 @@ public class CountryService {
             tickets[i] = new ReaderTicket();
         }
     }
+    // HOBOE: добавлено в ветке refactor/extract-country-service
+    public static boolean removeByReaderName(String readerName) {
+        if (tickets == null) return false;
+        for (int i = 0; i < tickets.length; i++) {
+            if (tickets[i].getReaderName().equalsIgnoreCase(readerName)) {
+                ReaderTicket[] newTickets = new ReaderTicket[tickets.length - 1];
+                for (int j = 0, k = 0; j < tickets.length; j++) {
+                    if (j != i) newTickets[k++] = tickets[j];
+                }
+                tickets = newTickets;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static int count() {
+        return tickets == null ? 0 : tickets.length;
+    }
 }
