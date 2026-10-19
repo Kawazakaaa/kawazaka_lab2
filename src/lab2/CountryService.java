@@ -133,4 +133,13 @@ public class CountryService {
     public static int count() {
         return tickets == null ? 0 : tickets.length;
     }
+    public static ReaderTicket findByName(String bookName) {
+        System.out.println("Поиск книги: " + bookName);
+        for (int i = 0; i < tickets.length; i++) {
+            if (tickets[i].getBookTitle().equals(bookName)) {
+                return tickets[i];
+            }
+        }
+        return null;
+    }
 }

@@ -34,6 +34,13 @@ public class Main {
                     break;
                 }
                 case 7: System.out.println("Всего записей: " + CountryService.count()); break;
+                case 9: {
+                    System.out.print("Название книги: ");
+                    String title = sc.nextLine();
+                    ReaderTicket t = CountryService.findByName(title);
+                    System.out.println(t != null ? t : "Не найдено.");
+                    break;
+                }
                 default: break cycle;
             }
         }
