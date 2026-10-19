@@ -26,4 +26,23 @@ public class CountryService {
             System.out.println(t);
         }
     }
+    public static void whoTookEfremovTais() {
+        System.out.println("\nЧитатели, бравшие \"Таис Афинская\" Ефремова 15.05.19");
+        final String AUTHOR = "Ефремов";
+        final String TITLE  = "Таис Афинская";
+        final String DATE   = "15.05.19";
+        boolean found = false;
+
+        for (ReaderTicket t : tickets) {
+            if (t.getBookAuthor().equalsIgnoreCase(AUTHOR)
+                    && t.getBookTitle().equalsIgnoreCase(TITLE)
+                    && t.getIssueDate().equals(DATE)) {
+                System.out.println(t.getReaderName());
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("Таких читателей не найдено.");
+        }
+    }
 }

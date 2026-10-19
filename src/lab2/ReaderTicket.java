@@ -78,4 +78,5 @@ public class ReaderTicket {
         CountryService.printTickets();
     }
 
+    public static void whoTookEfremovTais() { CountryService.whoTookEfremovTais(); }
 }
