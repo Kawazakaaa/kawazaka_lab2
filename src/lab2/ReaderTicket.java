@@ -4,14 +4,13 @@ import java.util.Scanner;
 
 public class ReaderTicket {
 
+    // ===== Поля класса (только данные об одной записи) =====
+    private String readerName; // фамилия читателя
+    private String bookAuthor; // автор книги
+    private String bookTitle;  // название книги
+    private String issueDate;  // дата выдачи книги (формат дд.мм.гг)
 
-    private String readerName;// фамилия читателя
-    private String bookAuthor;// автор книги
-    private String bookTitle;// название книги
-    private String issueDate;// дата выдачи книги (формат дд.мм.гг)
-
-
-    //Конструктор с параметрами
+    // Конструктор с параметрами
     public ReaderTicket(String readerName, String bookAuthor,
                         String bookTitle, String issueDate) {
         this.setReaderName(readerName);
@@ -20,7 +19,7 @@ public class ReaderTicket {
         this.setIssueDate(issueDate);
     }
 
-    //Конструктор по умолчанию (ввод с клавиатуры)
+    // Конструктор по умолчанию (ввод с клавиатуры)
     public ReaderTicket() {
         Scanner sc = new Scanner(System.in, "cp1251");
         System.out.print("Фамилия читателя : ");
@@ -33,7 +32,7 @@ public class ReaderTicket {
         this.setIssueDate(sc.nextLine());
     }
 
-    //Переопределение toString()
+    // Переопределение toString()
     @Override
     public String toString() {
         return String.format(
@@ -42,47 +41,54 @@ public class ReaderTicket {
         );
     }
 
-    //Геттеры и сеттеры
-    public String getReaderName() { return readerName; }
+    // ===== Геттеры и сеттеры =====
+
+    public String getReaderName() {
+        return readerName;
+    }
+
     public void setReaderName(String value) {
         if (value == null || value.trim().isEmpty()) {
             System.out.println("Недопустимое значение: фамилия читателя!");
-        } else { this.readerName = value.trim(); }
+        } else {
+            this.readerName = value.trim();
+        }
     }
 
-    public String getBookAuthor() { return bookAuthor; }
+    public String getBookAuthor() {
+        return bookAuthor;
+    }
+
     public void setBookAuthor(String value) {
         if (value == null || value.trim().isEmpty()) {
             System.out.println("Недопустимое значение: автор книги!");
-        } else { this.bookAuthor = value.trim(); }
+        } else {
+            this.bookAuthor = value.trim();
+        }
     }
 
-    public String getBookTitle() { return bookTitle; }
+    public String getBookTitle() {
+        return bookTitle;
+    }
+
     public void setBookTitle(String value) {
         if (value == null || value.trim().isEmpty()) {
             System.out.println("Недопустимое значение: название книги!");
-        } else { this.bookTitle = value.trim(); }
+        } else {
+            this.bookTitle = value.trim();
+        }
     }
 
-    public String getIssueDate() { return issueDate; }
+    public String getIssueDate() {
+        return issueDate;
+    }
+
     public void setIssueDate(String value) {
+        // простая проверка формата дд.мм.гг
         if (value == null || !value.matches("\\d{2}\\.\\d{2}\\.\\d{2}")) {
             System.out.println("Недопустимое значение: дата должна быть в формате дд.мм.гг!");
-        } else { this.issueDate = value; }
+        } else {
+            this.issueDate = value;
+        }
     }
-
-
-
-    // 2. Печать массива (делегат в CountryService)
-    public static void printTickets() {
-        CountryService.printTickets();
-    }
-
-    public static void whoTookEfremovTais() { CountryService.whoTookEfremovTais(); }
-
-    public static void countBooksByAuthor(){ CountryService.countBooksByAuthor();}
-
-    public static void sortReadersByBookCountDesc(){CountryService.sortReadersByBookCountDesc();}
-
-    public static void fillTickets(){CountryService.fillTickets();}
 }
