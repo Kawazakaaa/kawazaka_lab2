@@ -37,7 +37,7 @@ public class Main {
                 case 9: {
                     System.out.print("Название книги: ");
                     String title = sc.nextLine();
-                    ReaderTicket t = CountryService.findByName(title);
+                    ReaderTicket t = CountryService.searchByName(title);
                     System.out.println(t != null ? t : "Не найдено.");
                     break;
                 }
