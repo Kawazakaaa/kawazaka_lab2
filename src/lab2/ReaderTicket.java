@@ -152,5 +152,20 @@ public class ReaderTicket {
         }
     }
 
+    // 3b. Количество книг заданного автора
+    public static void countBooksByAuthor() {
+        System.out.print("\nВведите автора для подсчёта книг => ");
+        Scanner sc = new Scanner(System.in);
+        String author = sc.nextLine().trim();
+
+        int count = 0;
+        for (ReaderTicket t : tickets) {
+            if (t.getBookAuthor().equalsIgnoreCase(author)) {
+                count++;
+            }
+        }
+        System.out.println("Количество книг автора \"" + author + "\": " + count);
+    }
+
 
 }
