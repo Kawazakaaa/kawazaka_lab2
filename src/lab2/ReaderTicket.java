@@ -4,13 +4,12 @@ import java.util.Scanner;
 
 public class ReaderTicket {
 
-    // ===== Поля класса =====
+
     private String readerName;// фамилия читателя
     private String bookAuthor;// автор книги
     private String bookTitle;// название книги
     private String issueDate;// дата выдачи книги (формат дд.мм.гг)
 
-    // [УДАЛЕНО]: поле tickets и блок static {...} ушли в CountryService
 
     //Конструктор с параметрами
     public ReaderTicket(String readerName, String bookAuthor,
@@ -43,7 +42,7 @@ public class ReaderTicket {
         );
     }
 
-    //Геттеры и сеттеры (ОСТАВИТЬ ВСЕ БЕЗ ИЗМЕНЕНИЙ)
+    //Геттеры и сеттеры
     public String getReaderName() { return readerName; }
     public void setReaderName(String value) {
         if (value == null || value.trim().isEmpty()) {
