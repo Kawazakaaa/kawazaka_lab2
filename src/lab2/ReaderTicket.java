@@ -79,4 +79,6 @@ public class ReaderTicket {
     }
 
     public static void whoTookEfremovTais() { CountryService.whoTookEfremovTais(); }
+
+    public static void countBooksByAuthor(){ CountryService.countBooksByAuthor();}
 }
