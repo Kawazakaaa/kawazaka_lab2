@@ -16,14 +16,14 @@ public class Main {
             System.out.print("Выберите пункт меню (1..6): ");
 
             int a = sc.nextInt();
-            sc.nextLine(); // очистка буфера
+            sc.nextLine();
 
             switch (a) {
-                case 1: ReaderTicket.fillTickets();break;
-                case 2: ReaderTicket.printTickets();break;
-                case 3: ReaderTicket.whoTookEfremovTais();break;
-                case 4: ReaderTicket.countBooksByAuthor();break;
-                case 5: ReaderTicket.sortReadersByBookCountDesc();break;
+                case 1: CountryService.fillTickets(); break;
+                case 2: CountryService.printTickets(); break;
+                case 3: CountryService.whoTookEfremovTais(); break;
+                case 4: CountryService.countBooksByAuthor(); break;
+                case 5: CountryService.sortReadersByBookCountDesc(); break;
                 default: break cycle;
             }
         }
