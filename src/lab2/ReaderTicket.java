@@ -167,5 +167,49 @@ public class ReaderTicket {
         System.out.println("Количество книг автора \"" + author + "\": " + count);
     }
 
+    //3c. Сортировка читателей по убыванию количества выданных книг
+    public static void sortReadersByBookCountDesc() {
+        //Подсчитываем количество книг для каждого уникального читателя
+        //Для простоты используем два параллельных массива
+        String[] names  = new String[tickets.length];
+        int[]    counts = new int[tickets.length];
+        int unique = 0;
 
+        for (ReaderTicket t : tickets) {
+            int idx = -1;
+            for (int i = 0; i < unique; i++) {
+                if (names[i].equalsIgnoreCase(t.getReaderName())) {
+                    idx = i;
+                    break;
+                }
+            }
+            if (idx == -1) {
+                names[unique] = t.getReaderName();
+                counts[unique] = 1;
+                unique++;
+            } else {
+                counts[idx]++;
+            }
+        }
+
+        //Сортировка пузырьком по убыванию количества книг
+        for (int i = 0; i < unique - 1; i++) {
+            for (int j = 0; j < unique - 1 - i; j++) {
+                if (counts[j] < counts[j + 1]) {
+                    int tmpC = counts[j];
+                    counts[j] = counts[j + 1];
+                    counts[j + 1] = tmpC;
+
+                    String tmpN = names[j];
+                    names[j] = names[j + 1];
+                    names[j + 1] = tmpN;
+                }
+            }
+        }
+
+        System.out.println("\n Читатели по убыванию количества выданных книг");
+        for (int i = 0; i < unique; i++) {
+            System.out.printf("Читатель: %-12s | Книг: %d%n", names[i], counts[i]);
+        }
+    }
 }
