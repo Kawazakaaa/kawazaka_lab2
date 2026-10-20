@@ -18,6 +18,7 @@ public class CountryService {
         };
     }
 
+
     public static void printTickets() {
         System.out.println("\n Список читательских билетов");
         if (tickets == null || tickets.length == 0) {
@@ -132,14 +133,5 @@ public class CountryService {
 
     public static int count() {
         return tickets == null ? 0 : tickets.length;
-    }
-    public static ReaderTicket searchByName(String name) {
-        System.out.println("Поиск читателя: " + name);
-        for (int i = 0; i < tickets.length; i++) {
-            if (tickets[i].getReaderName().equals(name)) {
-                return tickets[i];
-            }
-        }
-        return null;
     }
 }

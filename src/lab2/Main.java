@@ -15,7 +15,7 @@ public class Main {
             System.out.println("6. Удалить читателя по фамилии");
             System.out.println("7. Количество записей");
             System.out.println("8. Выход");
-            System.out.print("Выберите пункт меню (1-8): ");
+            System.out.print("Выберите пункт меню (1-9): ");
 
             int a = sc.nextInt();
             sc.nextLine();
@@ -34,13 +34,6 @@ public class Main {
                     break;
                 }
                 case 7: System.out.println("Всего записей: " + CountryService.count()); break;
-                case 9: {
-                    System.out.print("Название книги: ");
-                    String title = sc.nextLine();
-                    ReaderTicket t = CountryService.searchByName(title);
-                    System.out.println(t != null ? t : "Не найдено.");
-                    break;
-                }
                 default: break cycle;
             }
         }
